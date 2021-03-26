@@ -1,7 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const generatePage = require('potential-enigma/Develop/utils/generateMarkdown.js');
-console.log(generatePage());
+const generatePage = require('./utils/generateMarkdown.js');
+// const {writeFile, copyfile} = require('./utils/README.md');
+//console.log(generatePage());
 // TODO: Create an array of questions for user input
 const questions = () => {
     return inquirer
@@ -59,20 +60,33 @@ const questions = () => {
         }
       },
       {
-        type: 'checkbox',
-        name: 'languages',
-        message: 'What did you this project with? (Check all that apply)',
-        choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node']
+        type: 'input',
+        name: 'credits',
+        message: 'List your Collaborators, if any, and links to their GitHub profiles',
+        validate: creditsInput => {
+          if (creditsInput) {
+            return true;
+          } else {
+            console.log('List those that you collaborated with');
+            return false;
+          }
+        }
+      },
+      {
+        type: 'confirm',
+        name: 'badges',
+        message: 'Would you like to add badges to this project?',
+        default: false
       },
       {
         type: 'input',
-        name: 'link',
-        message: 'Enter the GitHub link to your project. (Required)',
-        validate: linkInput => {
-          if (linkInput) {
+        name: 'features',
+        message: 'Did you want to present any features?',
+        validate: featuresInput => {
+          if (featuresInput) {
             return true;
           } else {
-            console.log('You need to enter a project GitHub link!');
+            console.log('You need to enter a steps!');
             return false;
           }
         }
@@ -93,10 +107,18 @@ const questions = () => {
 };
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
+function writeToFile('generateMarkdown.js', data) {}
+fs.writeFile('generateMarkdown.js', generatePage), err => {
+    if (err) throw err;
+    console.log('Readme complete checkit out!')
+}
+// // TODO: Create a function to initialize app
 
-// TODO: Create a function to initialize app
-// function init() {}
-
+function init() {
+    questions().then(responses=>{ 
+        console.log(responses)
+    })
+   
+}
 // Function call to initialize app
-// init();
+ init();

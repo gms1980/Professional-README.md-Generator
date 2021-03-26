@@ -19,6 +19,6 @@ function generateMarkdown(userResponses, userInfo) {
 //   let toc = `tableOfContents`
 
 //     if 
-// }
+}
 
-module.exports = generateMarkdown;
+//module.exports = generateMarkdown;
