@@ -1,10 +1,12 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
 const inquirer = require('inquirer');
-const generatePage = require('./utils/README.md');
+//const generatePage = require('./utils/README.md');
 // const {writeFile, copyfile} = require('./utils/README.md');
 //console.log(generatePage());
-// TODO: Create an array of questions for user input
+
+
+//Array of questions for user input to Generate README file
 const questions = () => {
     return inquirer
     .prompt([
@@ -107,14 +109,7 @@ const questions = () => {
     ]);
 };
 
-// TODO: Create a function to write README file
-//function writeToFile('generateMarkdown.js', data) {}
-fs.writeFile('./utils/README.md', 'Hello Content'), err => {
-    if (err) throw err;
-        console.log ('saved!');
-    
-};
-// // TODO: Create a function to initialize app
+// Function to initialize app
 
 function init() {
     questions().then(responses=>{ 
@@ -122,5 +117,12 @@ function init() {
     })
    
 }
-// Function call to initialize app
- init();
+init();
+
+// const READMEfile = '# ${name}'
+
+// fs.writeFile('./utils/README.md', README.md), err => {
+//     if (err) throw err;
+//     console.log ('saved!');
+    
+// };
