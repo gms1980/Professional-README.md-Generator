@@ -5,12 +5,13 @@ const inquirer = require('inquirer');
 // const {writeFile, copyfile} = require('./utils/README.md');
 //console.log(generatePage());
 // TODO: Create an array of questions for user input
-const questions = () => {
-    return inquirer
-    .prompt([
+//const questions = () => {
+    //return 
+
+    inquirer.prompt([
       {
         type: 'input',
-        name: 'name',
+        name: 'title',
         message: 'What is the name of your project? (Required)',
         validate: nameInput => {
           if (nameInput) {
@@ -99,20 +100,13 @@ const questions = () => {
       }
     ])
 
-
 .then(answers =>{
-    const {name, description, installation, usage, credits, badges} = answers
+    const {title, description, installation, usage, credits, badges} = answers
 console.log (answers);
 
 // TODO: Create a function to write README file
 // function writeToFile('generateMarkdown.js', data) {}
-fs.writeFile('./utils/README.md', READMEfile, err => {
-        if (err) {
-            console.log(err);
-        }else{
-        console.log ('saved!');
-        };
-})}
+
 //const destructure answers
  
 // const README.md = $(title)
@@ -147,21 +141,25 @@ fs.writeFile('./utils/README.md', READMEfile, err => {
 // `
 
 
-
-
 // // TODO: Create a function to initialize app
 
-function init() {
-    questions().then(responses=>{ 
-        console.log(responses)
-    })
-   
-}
+// function init() {
+//     questions().then(responses=>{ 
+//         console.log(responses)
+//     })   
+// }
 // Function call to initialize app
- init();
+//  init();
 
 //  function generateMarkdown(userResponses, userInfo) {
 //     return `# ${data.title} figure out return after var
-
+fs.writeFile('./utils/README.md', READMEfile, err => {
+    if (err) {
+        console.log(err);
+    }else{
+    console.log ('saved!');
+    };
+}
+)};
   
 //   //module.exports = generateMarkdown;
