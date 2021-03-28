@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
-const fs = require("fs");
 const inquirer = require('inquirer');
-//const generatePage = require('./utils/README.md');
+const fs = require("fs");
+const generatePage = require('./utils/generateMarkdown.js');
 // const {writeFile, copyfile} = require('./utils/README.md');
 //console.log(generatePage());
 
@@ -44,8 +44,8 @@ const questions = () => {
       },
       {
         type: 'input',
-        name: 'features',
-        message: 'Did you want to present any features?',        
+        name: 'testing',
+        message: 'Were ther any tests conducted?',        
       },
       {
         type: 'checkbox',
@@ -61,22 +61,94 @@ const questions = () => {
       }, 
       {
         type: 'input',
+        name: 'github',
+        message: 'enter your Github username',
+      },   
+      {
+        type: 'input',
         name: 'email',
         message: 'Enter your email',
       },    
     ]);
 };
 
+// Function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        if (err)
+        throw err;
+        console.log('I hope! this Works!')
+    });
+};
+
+
 // Function to initialize app
 
 function init() {
-    questions().then(responses=>{ 
-        console.log(responses)
-    })
-   
-}
-init();
+    inquirer.prompt(questions)
+    .then(function(userInput) {
+        console.log(userInput)
+        writeToFile("./utils/generateMarkdown.js", generateMarkdown(userInput));
+    });
+};
+ // Function to initialize app  
 
+ init();
+
+// promptUser()
+//   .then(promptProject)
+//   .then(portfolioData => {
+//     return generatePage(portfolioData);
+//   })
+//   .then(pageHTML => {
+//     return writeFile(pageHTML);
+//   })
+//   .then(writeFileResponse => {
+//     console.log(writeFileResponse);
+//     return copyFile();
+//   })
+//   .then(copyFileResponse => {
+//     console.log(copyFileResponse);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
+//     questions().then(responses=>{ 
+//         console.log(responses)
+//     })
+// }
+
+
+
+ //Start README Format
+
+//  function writeFile(filename, data) {
+//      fs.writeFile(fileName, data, err => {
+//          if (err) {
+//              return console.log(err);
+//          }
+//          console.log('your markdown fiel has been created')
+//      });
+//  }
+// function generateREADME(questions) {
+//     return  `# ${questions.title}
+
+// #### Table of Contents
+
+// `
+// console.log(questions);
+// }
+
+
+
+
+//     .prompt ([
+//     .then(function(questions) {
+//         const readme = generateREADME(questions);
+    
+    
+//     return fs.writeFile("README.md", readme);
+// })])
 
 
 // fs.writeFile('./utils/README.md', questions), err => {
