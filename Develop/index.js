@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
 const inquirer = require('inquirer');
-const generatePage = require('./utils/README.md');
+//const generatePage = require('./utils/README.md');
 // const {writeFile, copyfile} = require('./utils/README.md');
 //console.log(generatePage());
 // TODO: Create an array of questions for user input
@@ -80,17 +80,10 @@ const questions = () => {
         default: false
       },
       {
-        type: 'input',
-        name: 'features',
-        message: 'Did you want to present any features?',
-        validate: featuresInput => {
-          if (featuresInput) {
-            return true;
-          } else {
-            console.log('You need to enter a steps!');
-            return false;
-          }
-        }
+        type: 'checkbox',
+        name: 'licences',
+        message: 'What licences did you use with this project? (Check all that apply',
+        choices: ['MIT', 'GNU', 'Apache-2.0', 'ISC']
       },
       {
         type: 'confirm',
@@ -104,16 +97,58 @@ const questions = () => {
         message: 'Would you like to enter another project?',
         default: false
       }
-    ]);
-};
+    ])
+
+
+.then(answers =>{
+    const {name, description, installation, usage, credits, badges} = answers
+console.log (answers);
 
 // TODO: Create a function to write README file
-//function writeToFile('generateMarkdown.js', data) {}
-fs.writeFile('./utils/README.md', 'Hello Content'), err => {
-    if (err) throw err;
+// function writeToFile('generateMarkdown.js', data) {}
+fs.writeFile('./utils/README.md', READMEfile, err => {
+        if (err) {
+            console.log(err);
+        }else{
         console.log ('saved!');
+        };
+})}
+//const destructure answers
+ 
+// const README.md = $(title)
+// ![Github licence] $badge
+//return `# ${data.title}
+// ${renderLicenseBadge(data.license)}
+
+//     ## Description
+// ${data.description}
+
+//     ## .Table of Contents
+//     -[Description] #description 
+//     -[Installation] #installation
+//     -[Usage] #usage
+//     -[Credits] #credits
+//     -[Badges] #badges
     
-};
+//     ## .Description
+// ${data.decription}
+
+//     ## .Installation
+// ${data.instalation}
+
+//     ## .Usage
+// ${data.usage}
+
+//     ## .Credits
+// ${data.credits}
+
+//     ## .Badges
+// ${data.badges}
+// `
+
+
+
+
 // // TODO: Create a function to initialize app
 
 function init() {
@@ -124,3 +159,9 @@ function init() {
 }
 // Function call to initialize app
  init();
+
+//  function generateMarkdown(userResponses, userInfo) {
+//     return `# ${data.title} figure out return after var
+
+  
+//   //module.exports = generateMarkdown;
