@@ -5,7 +5,7 @@ function generateMarkdown(data) {
 
   ## Licensing:
   
-
+  [![license](https://img.shields.io/badge/license-${data.licensing}-blue)](https://shields.io)
   
   ## Table of Contents 
   - [Description](#description)
@@ -14,27 +14,39 @@ function generateMarkdown(data) {
   - [Credits](#credits)
   - [Badges](#badges)
   - [Additional Info](#additional-info)
+
   ## Description:
   ${data.description}
+  
   ## Installation:
   ${data.installation}
+  
   ## Usage:
   ${data.usage}
+  
   ## Credits:
   ${data.credits}
+  
   ## Contribution:
   ${data.contribution}
-  ## Badges:
-  ${data.badges}
+  
+  ## Badges:  
+  [![made-with-Markdown](https://img.shields.io/badge/${data.badges}Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
+  
   ## Testing:
   ${data.testing}
+  
   ## Name:
   ${data.name}
+  
   ## Github: [${data.github}](https://github.com/${data.github})
+  
   ## Email: ${data.email} `;
 }
 
 module.exports = generateMarkdown;
+
+// [![badge](https://img.shields.io/badge/dynamic/json?url=<URL>&label=<LABEL>&query=<$.DATA.SUBDATA>&color=<COLOR>&prefix=<PREFIX>&suffix=<SUFFIX>
 
 
 // TODO: Create a function that returns the license link

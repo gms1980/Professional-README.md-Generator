@@ -1,15 +1,16 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require("fs");
-const generatePage = require('./utils/generateMarkdown.js');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 // const {writeFile, copyfile} = require('./utils/README.md');
 //console.log(generatePage());
 
 
 //Array of questions for user input to Generate README file
-const questions = () => {
-    return inquirer
-    .prompt([
+const questions = [
+//= () => {
+    //return inquirer
+    //.prompt([
       {
         type: 'input',
         name: 'title',
@@ -51,7 +52,7 @@ const questions = () => {
         type: 'checkbox',
         name: 'licenses',
         message: 'What licenses did you use with this project',
-        choices: ['MIT', 'Other']
+        choices: ['MIT','GNU AGPLv3', 'Apache 2.0', 'None']
         
       },
       {
@@ -69,8 +70,9 @@ const questions = () => {
         name: 'email',
         message: 'Enter your email',
       },    
-    ]);
-};
+    ];//);
+//};
+
 
 // Function to write README file
 function writeToFile(fileName, data) {
@@ -88,14 +90,16 @@ function init() {
     inquirer.prompt(questions)
     .then(function(userInput) {
         console.log(userInput)
-        writeToFile("./utils/generateMarkdown.js", generateMarkdown(userInput));
+        writeToFile("./utils/README.md", generateMarkdown(userInput));
     });
-};
- // Function to initialize app  
+}; 
+ 
 
+// Function to initialize app    
  init();
 
-// promptUser()
+
+
 //   .then(promptProject)
 //   .then(portfolioData => {
 //     return generatePage(portfolioData);
