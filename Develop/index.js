@@ -32,15 +32,20 @@ const questions = [
       "List your Collaborators, if any, and links to their GitHub profiles",
   },
   {
-    type: "confirm",
+    type: "checkbox",
     name: "badges",
     message: "Would you like to add badges to this project?",
-    default: false,
+    choices: ["GitHub issues", "GitHub forks", "Github Stars", "Twitter", "None"],
+  },
+  {
+    type: "input",
+    name: "contributions",
+    message: "Were their any contributions to mention?",
   },
   {
     type: "input",
     name: "testing",
-    message: "Were ther any tests conducted?",
+    message: "Were their any tests conducted?",
   },
   {
     type: "checkbox",

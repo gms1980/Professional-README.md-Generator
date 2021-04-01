@@ -1,69 +1,57 @@
-const fs = require('fs');
+const fs = require("fs");
 
 function generateMarkdown(data) {
   return `# ${data.title}
 
   ## Licensing:
-  
-  [![license](https://img.shields.io/badge/license-${data.licensing}-blue)](https://shields.io)
+  ![badge](https://img.shields.io/badge/license-${data.licenses}-brightgreen)
+  <br />
+  This application is covered by the ${data.licenses} license.
+
   
   ## Table of Contents 
   - [Description](#description)
-  - [Installation](#installation)
+  - [Installation](#installation) 
   - [Usage](#usage)
   - [Credits](#credits)
+  - [Contributions](#contributions)
   - [Badges](#badges)
-  - [Additional Info](#additional-info)
+  - [Testing](#testing)
+  - [Name](#name)
+  - [Github](#github)
+  - [Email](#email)
 
   ## Description:
   ${data.description}
   
   ## Installation:
   ${data.installation}
-  
+   
   ## Usage:
   ${data.usage}
   
   ## Credits:
   ${data.credits}
   
-  ## Contribution:
-  ${data.contribution}
+  ## Contributions:
+  ${data.contributions}
   
   ## Badges:  
-  [![made-with-Markdown](https://img.shields.io/badge/${data.badges}Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
+  ${data.badges}  
   
+
   ## Testing:
   ${data.testing}
   
-  ## Name:
+
+  ## Name: 
   ${data.name}
   
-  ## Github: [${data.github}](https://github.com/${data.github})
+  ## Github: 
+  [${data.github}](https://github.com/${data.github})
   
-  ## Email: ${data.email} `;
+  ## Email: 
+  ${data.email} `;
 }
 
 module.exports = generateMarkdown;
-
-// [![badge](https://img.shields.io/badge/dynamic/json?url=<URL>&label=<LABEL>&query=<$.DATA.SUBDATA>&color=<COLOR>&prefix=<PREFIX>&suffix=<SUFFIX>
-
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-//function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-//function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
-//function generateMarkdown(userResponses, userInfo) {
-  // return # ${data.title} figure out return after var
-//Table of Contents Here    
-//   let toc = `tableOfContents`
-
-//     if 
-
-
-
