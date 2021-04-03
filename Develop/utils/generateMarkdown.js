@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const fs = require("fs");
+=======
+const fs = require('fs');
+>>>>>>> master
 
 function generateMarkdown(data) {
   return `# ${data.title}
@@ -21,6 +25,7 @@ function generateMarkdown(data) {
   - [Github](#github)
   - [Email](#email)
 
+<<<<<<< HEAD
   ## Description:
   ${data.description}
   
@@ -55,3 +60,7 @@ function generateMarkdown(data) {
 }
 
 module.exports = generateMarkdown;
+=======
+// TODO: Create a function to generate markdown for README
+
+>>>>>>> master
