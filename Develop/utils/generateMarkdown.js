@@ -1,16 +1,59 @@
-const fs = require('fs');
+const fs = require("fs");
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function generateMarkdown(data) {
+  return `# ${data.title}
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
+  ## Licensing:
+  ![badge](https://img.shields.io/badge/license-${data.licenses}-brightgreen)
+  <br />
+  This application is covered by the ${data.licenses} license.
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+  
+  ## Table of Contents 
+  - [Description](#description)
+  - [Installation](#installation) 
+  - [Usage](#usage)
+  - [Credits](#credits)
+  - [Contributions](#contributions)
+  - [Badges](#badges)
+  - [Testing](#testing)
+  - [Name](#name)
+  - [Github](#github)
+  - [Email](#email)
 
-// TODO: Create a function to generate markdown for README
+
+  ## Description:
+  ${data.description}
+  
+  ## Installation:
+  ${data.installation}
+   
+  ## Usage:
+  ${data.usage}
+  
+  ## Credits:
+  ${data.credits}
+  
+  ## Contributions:
+  ${data.contributions}
+  
+  ## Badges:  
+  ${data.badges}  
+  
+
+  ## Testing:
+  ${data.testing}
+  
+
+  ## Name: 
+  ${data.name}
+  
+  ## Github: 
+  [${data.github}](https://github.com/${data.github})
+  
+  ## Email: 
+  ${data.email} `;
+}
+
+module.exports = generateMarkdown;
 
